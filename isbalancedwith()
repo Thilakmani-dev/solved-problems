@@ -1,0 +1,53 @@
+class Stack{
+    constructor(){
+        this.items = [];
+    }
+     push(item){
+        this.items.push(item);
+    }
+     pop(item){
+        if(this.isEmpty()){
+            return 'Stack is not empty';
+        }
+         return this.items.pop();  
+    }
+     peek(){
+        return this.items[this.items.length-1];
+    }
+     isEmpty(){
+        return this.items.length === 0;
+    }
+     getSize(){
+        return this.items.length;
+    }
+     getItems(){
+        console.info('Stack',this.items)
+    }
+}
+
+
+
+function test(input){
+    const stack = new Stack();
+for(let str of input){
+    if(str === '('){
+        stack.push(str);
+    }
+    else if(str === ')'){
+        stack.pop()
+    }
+}
+
+if(stack.isEmpty()){
+    console.log(input, 'passed')
+    return;
+}
+console.log(input,' failed')
+}
+
+test('(abc)');
+test('((asadfa)')
+test('((a)asdav)')
+
+
+
